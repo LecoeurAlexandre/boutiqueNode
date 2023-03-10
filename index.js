@@ -33,19 +33,44 @@ app.post('/products', (req, res)=> {
 
 
 //Voir tous les clients
-
+app.get('/clients', (req, res) => {
+    res.json(data.clientsList)
+})
 
 // Voir un client
-
+app.get('/clients/:id', (req,res) => {
+    const client = data.findClientById(req.params.id)
+    if( client != undefined){
+        res.json(client)
+    }else {
+        res.json({message : "Client pas trouvé"})
+    }
+})
 
 //Voir un produit
-
+app.get('/products/:id', (req,res) => {
+    const product = data.findProductById(req.params.id)
+    if( product != undefined){
+        res.json(product)
+    }else {
+        res.json({message : "Produit pas trouvé"})
+    }
+})
 
 // Voir la liste des commandes
-
+app.get('/orders', (req, res) => {
+    res.json(data.ordersList)
+})
 
 // Voir une seule commande
-
+app.get('/orders/:id', (req,res) => {
+    const order = data.findOrderById(req.params.id)
+    if( order != undefined){
+        res.json(order)
+    } else {
+        res.json({message : "Commande pas trouvée"})
+    }
+})
 
 app.listen(3000, () => {
     console.log("Bienvenue sur le site, bon shopping !")
