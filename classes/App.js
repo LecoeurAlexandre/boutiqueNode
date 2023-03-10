@@ -1,4 +1,5 @@
 import { Client } from "./Client.js"
+import { Product } from "./Product.js"
 import { writeFileSync , readFileSync } from "fs"
 
 export class App {
@@ -22,5 +23,11 @@ export class App {
         const client = new Client (++this.clientCounter, lastname, firstname, telephone)
         this.clientsList.push(client)
         this.write(this.clientsFile, this.clientsList)
+    }
+
+    createProduct(title, price, stock){
+        const product = new Product (++this.productCounter, title, price, stock)
+        this.productsList.push(product)
+        this.write(this.productsFile, this.productsList)
     }
 }
