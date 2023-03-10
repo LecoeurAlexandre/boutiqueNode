@@ -1,8 +1,8 @@
 export class Client {
-    constructor(id,nom,prenom,telephone){
+    constructor(id,lastname,firstname,telephone){
         this.id=id
-        this.nom = nom
-        this.prenom = prenom
+        this.lastname = lastname
+        this.firstname = firstname
         this.telephone = telephone
     }
 }
